@@ -7,7 +7,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/tests/setup.js'],
-    testMatch: ['./src/**/*.test.jsx'],
+    testMatch: ['./src/tests/*.test.jsx'],
     globals: true
   }
 });
