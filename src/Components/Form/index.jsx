@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './Form.scss';
 
 function Form(props) {
-
-  // Define the state variables
   const [url, setUrl] = useState('');
   const [method, setMethod] = useState('get');
   const [body, setBody] = useState('');
@@ -76,6 +74,7 @@ function Form(props) {
               <textarea 
                 value={body} 
                 onChange={(e) => setBody(e.target.value)}
+                placeholder="Enter JSON formatted body"
               ></textarea>
             </label>
           </div>

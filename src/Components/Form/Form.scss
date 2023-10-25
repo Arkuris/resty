@@ -1,26 +1,78 @@
 $backgroundColor: #efefef;
-$radius: 40%;
+$radius: 5px;
+$inputBorderColor: #ccc;
+$inputFocusColor: #555;
+$buttonColor: darken($backgroundColor, 30);
 
 form {
   display: inline-block;
   margin: auto;
-  width: 200px;
+  width: 90%;
+  max-width: 400px; 
+  padding: 1.5rem;
+  background: $backgroundColor;
+  border-radius: $radius;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
   label {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     margin: 1rem 0;
+    
+    span {
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    input[type="text"], textarea {
+      padding: 0.5rem;
+      border: 1px solid $inputBorderColor;
+      border-radius: $radius;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $inputFocusColor;
+      }
+    }
 
     &.methods {
-      span {
-        cursor: pointer;
-        margin-right: 1rem;
-        padding: .25rem .5rem;
-        background: #ccc;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
 
-        &:hover, &.active {
-          background: #fff;
+      input[type="radio"] {
+        display: none;
+      }
+
+      span {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        background: darken($backgroundColor, 5);
+        border-radius: $radius;
+        transition: background 0.3s ease;
+
+        &:hover, &.active, input[type="radio"]:checked + & {
+          background: $buttonColor;
+          color: $backgroundColor;
         }
       }
+    }
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: $radius;
+    background: $buttonColor;
+    color: $backgroundColor;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($buttonColor, 10);
     }
   }
 }
